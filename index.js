@@ -114,8 +114,8 @@ Use the getInningScore() function below to do the following:
 function getInningScore(functioncb){
   /*Your Code Here */
 return {
-  Home: 
-  Away: 
+  Home: functioncb(),
+  Away: functioncb()
 }
 }
 console.log(getInningScore(inning));
