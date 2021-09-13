@@ -59,6 +59,7 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+  Closure is when an inner function reaches out into the outer functions to grab the defined variable. It allows access to the parent functions from a higher level up after the variables have been called or closed or terminated. 
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -80,8 +81,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+  name and newRoll is where the closure is used. I can tell because the console.log is reaching the variable of newRoll and name in the previous function via the parameters that was passed through.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  The firs time dansRoll will will generate a random number 1-5, the second time will do the same. The name will always be the same and what could change is the newRoll which generates a random number each time dansRoll is invoked. 
 c. What is the lexical scope of `newRoll`? 
+  It is a block scope.git
 
 
 ### Task 3 - Stretch Goals
