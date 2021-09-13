@@ -28,11 +28,14 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+    Counter 2 has let as a global variable, which it will come out to 'undefined' when invoked. 
   
   2. Which of the two uses a closure? How can you tell?
+    Counter 1 uses closure because it is invoking a function that calls a variable a higher level above it when it reaches for the variable 'count' which is declared under the function declaration.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+        Counter 1 will be best used for keeping tracks of scores in games and the previous scores. Whereas counter 2 will be used to keep the count as the same number as always at 0. But it also returns the function itself in the console. 
 */
 
 // counter1 code
@@ -62,8 +65,9 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
+function inning(){
     /*Code Here*/
+    return Math.floor(Math.random() * 3);
 }
 
 
