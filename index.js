@@ -163,19 +163,19 @@ Use the scoreboard function below to do the following:
 
 function scoreboard(getInningScore2, inning2, num) {
   /* CODE HERE */
-  const finalNum = [];
-  let totalHomeScore = 0;
-  let totalAwayScore = 0;
+  const finalNum = []; //the final variable to call everything
+  let totalHomeScore = 0; // sum of home scores to start at 0 then gets added later
+  let totalAwayScore = 0; // sum of away scores to start at 0  then gets added later
 
   for (let i = 1; i <= num; i++) {
-    // loops through each innings
-    const inningScore = getInningScore2(inning2); // this is the inning score between 0-2
-    totalHomeScore = totalHomeScore + inningScore.Home; // we're adding to the totalhome score - we're adding the inning score for home
-    totalAwayScore = totalAwayScore + inningScore.Away; // we're adding to the totalaway score - we're adding the inning score for away 
-    finalNum.push(`Inning ${i}: Away ${inningScore.Away} - Home ${inningScore.Home}`); // this line should print 'inning #: inning score for away # 0-2) - inning score for home # (0-2)'
+    // loops through each innings until 9; innings start at 1 and not 0
+    const inningScore = getInningScore2(inning2); // this is the inning score between 0-2 that is randomly generated in task 2
+    totalHomeScore = totalHomeScore + inningScore.Home; // we're adding the inningScore of home object to the totalHomeScore
+    totalAwayScore = totalAwayScore + inningScore.Away; // we're adding the inningScore of away object to the totalAwayScore
+    finalNum.push(`Inning ${i}: Away ${inningScore.Away} - Home ${inningScore.Home}`); // this line should print 'inning #: inning score for away # 0-2) - inning score for home # (0-2) 9 times'
   } 
   if  (totalHomeScore === totalAwayScore) {
-    // if the inning #'s is equal to i AND home is equal to away, then there's a tie
+    // if the inning #'s is equal to the last inning (9) AND total home score is equal to total away score, then there's a tie - print this line below
     finalNum.push(`This game will require extra innings: Away ${totalAwayScore} - Home ${totalHomeScore} `); 
   } else { 
     // if there's no tie, print final score: away & home
