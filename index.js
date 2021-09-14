@@ -164,19 +164,24 @@ Use the scoreboard function below to do the following:
 function scoreboard(getInningScore2, inning2, num) {
   /* CODE HERE */
   const finalNum = [];
-  let home = 0;
-  let away = 0;
+  let totalHomeScore = 0;
+  let totalAwayScore = 0;
 
-  for (let i = 0; i < num; i++){ // loops through each innings
-    const currentNum = getInningScore2(inning2);
-    home = home + currentNum.Home;
-    away = away + currentNum.Away;
-  if (num === i && home === away){
-    finalNum.push(`This game will require extra innings: Away ${away} - Home ${home} `);
-    } else {
-      finalNum.push(`Inning ${i + 1}: Away ${away} - Home ${home}`);
-    }
-  } return finalNum;
+  for (let i = 1; i <= num; i++) {
+    // loops through each innings
+    const inningScore = getInningScore2(inning2); // this is the inning score between 0-2
+    totalHomeScore = totalHomeScore + inningScore.Home; // we're adding to the totalhome score - we're adding the inning score for home
+    totalAwayScore = totalAwayScore + inningScore.Away; // we're adding to the totalaway score - we're adding the inning score for away 
+    finalNum.push(`Inning ${i}: Away ${inningScore.Away} - Home ${inningScore.Home}`); // this line should print 'inning #: inning score for away # 0-2) - inning score for home # (0-2)'
+  } 
+  if  (totalHomeScore === totalAwayScore) {
+    // if the inning #'s is equal to i AND home is equal to away, then there's a tie
+    finalNum.push(`This game will require extra innings: Away ${totalAwayScore} - Home ${totalHomeScore} `); 
+  } else { 
+    // if there's no tie, print final score: away & home
+    finalNum.push(`Final Score: Away ${totalAwayScore} - Home ${totalHomeScore}`);
+  }
+  return finalNum;
 }
 
 console.log(scoreboard(getInningScore, inning, 9));
