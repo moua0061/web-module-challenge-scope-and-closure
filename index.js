@@ -161,11 +161,25 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(getInningScore2, inning2, num) {
   /* CODE HERE */
+  const finalNum = [];
+  let home = 0;
+  let away = 0;
+
+  for (let i = 0; i < num; i++){ // loops through each innings
+    const currentNum = getInningScore2(inning2);
+    home = home + currentNum.Home;
+    away = away + currentNum.Away;
+  if (num === i && home === away){
+    finalNum.push(`This game will require extra innings: Away ${away} - Home ${home} `);
+    } else {
+      finalNum.push(`Inning ${i + 1}: Away ${away} - Home ${home}`);
+    }
+  } return finalNum;
 }
 
-
+console.log(scoreboard(getInningScore, inning, 9));
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
